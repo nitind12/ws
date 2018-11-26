@@ -16,9 +16,9 @@
   else {
     $res = $con->query("INSERT INTO category (`category_name`,`desc_`,`user_name`)
     values
-    ('$cat_name','$cat_desc','kamla')");
+    ('$cat_name','$cat_desc','kamal')");
     if($res){
-     echo json_encode('success'); 
+     echo json_encode('Added Successfully'); 
     }
     else{
      echo json_encode('error in inserting'); 
