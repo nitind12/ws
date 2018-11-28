@@ -1,7 +1,6 @@
- <?php
-
+<?php
  	require 'db.php';
-  		$query = mysqli_query($con,"SELECT item_id,item_name FROM items");
+  		$query = mysqli_query($con,"SELECT event_id,event_name FROM event");
 
   		if (mysqli_num_rows($query)>0) {
         $row1 = mysqli_fetch_all($query);
