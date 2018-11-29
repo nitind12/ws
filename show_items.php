@@ -1,11 +1,14 @@
  <?php
-
  	require 'db.php';
-  		$query = mysqli_query($con,"SELECT item_id,item_name FROM items");
+ 	require 'fetchsess.php';
+
+ 	if ($authen == true) {
+  		$query = mysqli_query($con,"SELECT item_id,item_name FROM items WHERE user_name = '$userji'");
 
   		if (mysqli_num_rows($query)>0) {
         $row1 = mysqli_fetch_all($query);
   			$data_ = array('res'=>true, 'record' => $row1);
   			echo json_encode($data_);
   		}
+  	}
 ?>
