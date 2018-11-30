@@ -13,21 +13,25 @@
     $path=$_SERVER['DOCUMENT_ROOT']."/ws/bill_pic/".$pic;
     $bool_ = false;
     move_uploaded_file($picp, $path);
+    $sid = $_COOKIE['session_id'];
 
     require 'db.php';
-    echo $sql = "INSERT INTO bill(event_id,user_name,bill_image,desc_)
-    values
-    ($sel_event,'kamal','$pic','$trn_desc')";
-    $res = $con->query($sql);
+    require 'fetchsess.php';
 
-    echo $sql1 = "INSERT INTO transaction(category_id,item_id,bill_id,amount,user_name,BGTID) 
-      VALUES 
-      ($sel_cat,$sel_itm,1,$price,'kamal',1)";
+    if ($authen == true) {
+      $sql = "INSERT INTO bill(event_id,user_name,bill_image,desc_)
+      values
+      ($sel_event,'$userji','$pic','$trn_desc')";
+      $res = $con->query($sql);
 
-    if($res){
-      $result = $con->query($sql1);
-      $bool_ = array('res'=>true, 'record'=>'Insert Successfully.');
+      echo $sql1 = "INSERT INTO transaction(category_id,item_id,bill_id,amount,user_name,BGTID) 
+        VALUES 
+        ($sel_cat,$sel_itm,1,$price,'$userji',1)";
+
+      if($res){
+        $result = $con->query($sql1);
+        $bool_ = array('res'=>true, 'record'=>'Insert Successfully.');
+      }
     }
-  
   echo json_encode($bool_);
 ?>

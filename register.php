@@ -15,15 +15,15 @@
     $bool_ = array('res'=>false, 'record'=>'username already exist.');
   }
   else {
-    $res = $con->query("INSERT INTO user(user_name,password)
+    $res = $con->query("INSERT INTO user(user_name,password,upline)
     values
-    ('$user','$pwd')");
+    ('$user','$pwd','$user')");
 
     if($res){
       $result = $con->query("INSERT INTO account(name,contact,u_email,user_name) 
       VALUES 
       ('$name','$contact','$email','$user')");
-      $bool_ = array('res'=>true, 'record'=>'Resistered Successfully.');
+      $bool_ = array('res'=>true, 'record'=>'Registered Successfully.');
     }
   }
   
