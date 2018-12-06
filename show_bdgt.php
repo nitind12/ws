@@ -1,13 +1,17 @@
  <?php session_id();
  	require 'db.php';
+
+  	if(/*isset($_POST['row']*/1){
+  		$query = mysqli_query($con,"SELECT BID,MONTHLY_BUDGET,month FROM monthly_budget where month ='".date('m')."' order by BID desc limit 0,1");
+        $query1 = mysqli_query($con,"SELECT month,MONTHLY_BUDGET FROM monthly_budget where year ='".date('Y')."'  order by BID asc ");
+
   require 'fetchsess.php';
 
     if ($authen == true) {
 
   	if(/*isset($_POST['row']*/1){
   		$query = mysqli_query($con,"SELECT BID,MONTHLY_BUDGET,month FROM monthly_budget where USERNAME='$userji' and month ='".date('m')."' order by BID desc limit 0,1");
-        $query1 = mysqli_query($con,"SELECT month,MONTHLY_BUDGET FROM monthly_budget where
-        USERNAME='$userji' and year ='".date('Y')."'  order by BID asc ");
+        $query1 = mysqli_query($con,"SELECT month,MONTHLY_BUDGET FROM monthly_budget where USERNAME='$userji' and year ='".date('Y')."'  order by BID asc ");
         
 
   		if (mysqli_num_rows($query)>0) {
@@ -18,6 +22,6 @@
             
   			echo json_encode($data_);
   		}
-  	};
-  }
+  	}
+
 ?>

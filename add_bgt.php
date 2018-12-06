@@ -1,6 +1,15 @@
-<?php
+<?php session_start();
  
   $bgt_amount = $_GET['budgetamount'];
+  
+  require 'db.php';
+  
+  
+  $published_date=date("d-m-Y");
+  $month = date('m', strtotime($published_date));
+  $year = date('Y', strtotime($published_date));
+
+
   $sid = $_COOKIE['session_id'];
   
   require 'db.php';
@@ -25,6 +34,9 @@
    {
 
     $res = $con->query("INSERT INTO monthly_budget (MONTHLY_BUDGET,month,year,USERNAME,BGT_DATE,STATUS)
+    values('$bgt_amount','$month','$year','kamal','$published_date','1')");
+    
+    $res1 = $con->query("INSERT INTO monthly_budget_detail (BUDGET_AMOUNT,DOBGT,USERNAME,STATUS)
     values('$bgt_amount','$month','$year','$userji','$published_date','1')");
     
     
@@ -35,7 +47,6 @@
 
     $res1 = $con->query("INSERT INTO monthly_budget_detail (BUDGET_AMOUNT,BID,DOBGT,USERNAME,STATUS)
              values('$bgt_amount','$bid1','$published_date','$userji','1')");
-      
    
      
     if($res){
@@ -51,7 +62,7 @@
     }
   
   }
-  
+
   }else{
 
     echo json_encode('Not Authorised User');
