@@ -1,4 +1,4 @@
-<?php
+<?php session_start();
  
   $bgt_amount = $_POST['budgetamount'];
   
@@ -10,6 +10,16 @@
   $year = date('Y', strtotime($published_date));
 
  
+  $sid = $_COOKIE['session_id'];
+  
+  require 'db.php';
+  require 'fetchsess.php';
+  
+  $published_date=date("Y-m-d");
+  $month = date('m', strtotime($published_date));
+  $year = date('Y', strtotime($published_date));
+
+  if($authen == true){
   $query=mysqli_query($con,"SELECT month from monthly_budget where month='$month' AND year='$year' ");
   $row=mysqli_fetch_all($query);
 
@@ -27,7 +37,16 @@
     values('$bgt_amount','$month','$year','kamal','$published_date','1')");
     
     $res1 = $con->query("INSERT INTO monthly_budget_detail (BUDGET_AMOUNT,DOBGT,USERNAME,STATUS)
-      values('$bgt_amount','$published_date','kamal','1')");
+    values('$bgt_amount','$month','$year','$userji','$published_date','1')");
+    
+    
+     $query=mysqli_query($con,"SELECT BID from monthly_budget where month='$month'");
+    $row=mysqli_fetch_array($query);
+
+    $bid1 =$row['BID'];
+
+    $res1 = $con->query("INSERT INTO monthly_budget_detail (BUDGET_AMOUNT,BID,DOBGT,USERNAME,STATUS)
+             values('$bgt_amount','$bid1','$published_date','$userji','1')");
    
      
     if($res){
@@ -43,7 +62,10 @@
     }
   
   }
-  
-  
+
+  }else{
+
+    echo json_encode('Not Authorised User');
+  }
   
 ?>

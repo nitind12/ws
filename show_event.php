@@ -1,4 +1,4 @@
-<? session_id();
+<?php session_id();
 	
 	require 'db.php';
 	require 'fetchsess.php';
