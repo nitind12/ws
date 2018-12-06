@@ -1,6 +1,6 @@
 <?php
  
-  $item_name = $_POST['item'];
+  $item_name = $_GET['item'];
   $sid = $_COOKIE['session_id'];
 
   require 'db.php';

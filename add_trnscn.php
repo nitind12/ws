@@ -1,10 +1,10 @@
 <?php
 
-    $sel_event = $_POST['sel_evnt'];
-    $sel_cat = $_POST['sel_cat']; 
-    $sel_itm = $_POST['sel_item'];
-    $trn_desc = $_POST['t_desc'];
-    $price = $_POST['price'];
+    $sel_event = $_GET['sel_evnt'];
+    $sel_cat = $_GET['sel_cat']; 
+    $sel_itm = $_GET['sel_item'];
+    $trn_desc = $_GET['t_desc'];
+    $price = $_GET['price'];
 
     $file = $_FILES['bill'];
     $pic = $file['name'];

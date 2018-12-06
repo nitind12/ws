@@ -1,7 +1,7 @@
 <?php
  
-  $cat_name = $_POST['catname'];
-  $cat_desc = $_POST['catdesc'];
+  $cat_name = $_GET['catname'];
+  $cat_desc = $_GET['catdesc'];
   $sid = $_COOKIE['session_id'];
 
   require 'db.php';

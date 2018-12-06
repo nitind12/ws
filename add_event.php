@@ -1,7 +1,7 @@
 <?php
  
-  $event_name = $_POST['event'];
-  $event_desc = $_POST['eventdesc'];
+  $event_name = $_GET['event'];
+  $event_desc = $_GET['eventdesc'];
   $sid = $_COOKIE['session_id'];
 
   require 'db.php';

@@ -1,6 +1,6 @@
 <?php session_start();
-	$user = $_POST['username'];
-	$pwd = $_POST['password'];
+	$user = $_GET['username'];
+	$pwd = $_GET['password'];
 	
 	require 'db.php';
 

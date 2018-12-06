@@ -1,7 +1,7 @@
 <?php
  
-    $updatedamount = $_POST['updatedamount'];
-    $bid= $_POST['bid'];
+    $updatedamount = $_GET['updatedamount'];
+    $bid= $_GET['bid'];
 
     $sid = $_COOKIE['session_id'];
 

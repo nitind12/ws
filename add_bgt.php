@@ -1,6 +1,6 @@
 <?php
  
-  $bgt_amount = $_POST['budgetamount'];
+  $bgt_amount = $_GET['budgetamount'];
   $sid = $_COOKIE['session_id'];
   
   require 'db.php';

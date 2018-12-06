@@ -1,9 +1,9 @@
 <?php
-  $user = $_POST['username'];
-  $pwd = $_POST['password'];
-  $name= $_POST['name'];
-  $contact=$_POST['contact'];
-  $email=$_POST['email'];
+  $user = $_GET['username'];
+  $pwd = $_GET['password'];
+  $name= $_GET['name'];
+  $contact=$_GET['contact'];
+  $email=$_GET['email'];
 
   require 'db.php';
 

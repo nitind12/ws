@@ -1,6 +1,6 @@
 <?php
  
-    $viewyear = $_POST['viewyear'];
+    $viewyear = $_GET['viewyear'];
    
    require 'db.php';
 

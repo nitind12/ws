@@ -1,8 +1,8 @@
 <?php
-  $pwd = $_POST['password'];
-  $name= $_POST['name'];
-  $contact=$_POST['contact'];
-  $email=$_POST['email'];
+  $pwd = $_GET['password'];
+  $name= $_GET['name'];
+  $contact=$_GET['contact'];
+  $email=$_GET['email'];
   $sid = $_COOKIE['session_id'];
 
   $file = $_FILES['pic'];
