@@ -1,6 +1,9 @@
 <?php
+if(!isset($_SESSION)){
+    session_start();
+}
   // Fetch user for to fetch and insert authenticated data
-  $sid = $_COOKIE['session_id'];
+  $sid = $_COOKIE['PHPSESSID'];
   $sql = "select user_name from sess_id where sessid = '$sid' and status=1";
   $res = $con->query($sql);
 

@@ -1,7 +1,6 @@
 <?php
  
   $item_name = $_GET['item'];
-  $sid = $_COOKIE['session_id'];
 
   require 'db.php';
   require 'fetchsess.php';
@@ -24,10 +23,9 @@
       else{
        echo json_encode('error in inserting'); 
       }
+    }
   }else{
     echo json_encode('Not Autherized');
-  }
-  
   }
   
 ?>
