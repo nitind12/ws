@@ -1,4 +1,7 @@
 <?php
+ header("Access-Control-Allow-Origin: *");
+ header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS");
+
 date_default_timezone_set('Asia/Kolkata');
   	$servername = "localhost";
   	//$username = "root";
